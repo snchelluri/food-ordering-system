@@ -29,6 +29,8 @@ public class Order extends AggregateRoot<OrderId> {
 
     private List<String> failureMessages;
 
+    public final static String FAILURE_MESSAGES_DELIMITER = ",";
+
     public void initializeOrder(){
         setId(new OrderId(UUID.randomUUID()));
         trackingId = new TrackingId(UUID.randomUUID());
@@ -108,9 +110,9 @@ public class Order extends AggregateRoot<OrderId> {
     }
 
     private void validateItemPrice(OrderItem orderItem) {
-        if(orderItem.isPriceValid()){
+        if(!orderItem.isPriceValid()){
             throw new OrderDomainException("Order item price: " + orderItem.getPrice().getAmount() +
-                    "is not valid for the product " + orderItem.getProduct().getId().getValue());
+                    " is not valid for the product " + orderItem.getProduct().getId().getValue());
         }
     }
 

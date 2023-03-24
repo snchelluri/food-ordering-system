@@ -3,6 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
     <parent>
         <groupId>com.food.ordering.system</groupId>
         <artifactId>food-order-service</artifactId>
@@ -10,10 +12,9 @@
     </parent>
 
     <artifactId>order-domain</artifactId>
-    <packaging>pom</packaging>
     <modules>
-        <module>order-domain-core</module>
         <module>order-application-service</module>
+        <module>order-domain-core</module>
     </modules>
 
     <properties>
